@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Sarabun", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "IBM Plex Sans Thai", sans-serif;
+  
+  --color-brand-navy: #1B3A6B;
+  --color-brand-red: #BA0C2F;
+  --color-brand-cream: #FDFBF7;
+  --color-brand-gold: #D4AF37;
+
+  --radius-xl: 0.25rem;
+  --radius-2xl: 0.25rem;
+  --radius-3xl: 0px;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-brand-cream text-brand-navy selection:bg-brand-navy selection:text-white antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+
+  button, .btn {
+    @apply transition-all duration-200;
+  }
+}
