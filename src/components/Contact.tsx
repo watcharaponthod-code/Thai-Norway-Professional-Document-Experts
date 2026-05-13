@@ -74,7 +74,7 @@ export const Contact = () => {
             </div>
           </div>
 
-          <div className="lg:w-1/2 p-12 md:p-16">
+          <div id="contact-form" className="lg:w-1/2 p-12 md:p-16">
             <form className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">

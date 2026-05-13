@@ -81,7 +81,9 @@ export const Hero = () => {
             </div>
 
             <div className="pt-6 flex flex-wrap gap-4">
-              <button className="bg-brand-red hover:bg-brand-red/90 text-white px-8 py-4 text-[11px] font-bold uppercase tracking-widest transition-all hover:translate-x-1 shadow-xl">
+              <button
+                onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+                className="bg-brand-red hover:bg-brand-red/90 text-white px-8 py-4 text-[11px] font-bold uppercase tracking-widest transition-all hover:translate-x-1 shadow-xl">
                 {t('cta_consultation') || 'Contact Expert Now'}
               </button>
               <button 
