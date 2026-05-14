@@ -1,10 +1,10 @@
 import { motion } from 'motion/react';
-import { Clock, Info, BookOpen, ChevronRight, FileSearch, ArrowRight } from 'lucide-react';
+import { Clock, Info, BookOpen, ChevronRight, FileSearch, ArrowRight, MessageCircle } from 'lucide-react';
 import { knowledgeBaseData } from '../data/knowledge';
 import { useLanguage } from '../context/LanguageContext';
 
 export const HowTo = () => {
-  const { t, language } = useLanguage();
+  const { t, language, setIsLineQRModalOpen } = useLanguage();
 
   const handleScrollToTopic = (id: number) => {
     const element = document.getElementById(`topic-${id}`);
@@ -231,19 +231,20 @@ export const HowTo = () => {
                   ? 'LA VÅRE EKSPERTER HÅNDTERE ALL DOKUMENTNØYAKTIGHET FOR DEG. MINIMER RISIKOER OG MAKSIMER SUKSESS I HVERT TILFELLE.'
                   : 'LET OUR EXPERTS HANDLE ALL DOCUMENT ACCURACY FOR YOU. MINIMIZE RISKS AND MAXIMIZE SUCCESS IN EVERY CASE.'}
             </p>
-            <a 
-              href="https://line.me/ti/p/@thainorexpert" 
-              target="_blank"
-              rel="noreferrer"
+            <button 
+              onClick={() => setIsLineQRModalOpen(true)}
               className="inline-flex items-center gap-6 bg-brand-red hover:bg-white hover:text-brand-navy text-white px-12 py-6 font-bold transition-all uppercase tracking-widest text-sm relative z-10 shadow-xl group"
             >
               {language === 'th' ? 'ปรึกษาฟรีผ่าน LINE' : language === 'no' ? 'GRATIS KONSULTASJON VIA LINE' : 'FREE CONSULTATION VIA LINE'}
-              <ArrowRight className="group-hover:translate-x-2 transition-transform" />
-            </a>
+              <div className="w-10 h-10 bg-white/10 group-hover:bg-brand-navy/10 flex items-center justify-center rounded-full transition-colors">
+                <motion.div animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
+                  <MessageCircle size={20} />
+                </motion.div>
+              </div>
+            </button>
           </motion.div>
         </div>
       </div>
     </section>
   );
 };
-

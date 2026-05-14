@@ -32,7 +32,7 @@ export const Contact = () => {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "YOUR_ACCESS_KEY_HERE", // Replace with Web3Forms Access Key
+          access_key: "629368dc-5582-4a57-a2d2-1f6b8289ce79", // User's Web3Forms Access Key
           subject: `New Consultation Request from ${formData.name}`,
           from_name: "Thainorexpert Website",
           ...formData

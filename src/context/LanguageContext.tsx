@@ -217,12 +217,15 @@ interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
+  isLineQRModalOpen: boolean;
+  setIsLineQRModalOpen: (open: boolean) => void;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('th');
+  const [isLineQRModalOpen, setIsLineQRModalOpen] = useState(false);
 
   const t = (key: string) => {
     if (!translations[key]) return key;
@@ -230,7 +233,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t, isLineQRModalOpen, setIsLineQRModalOpen }}>
       {children}
     </LanguageContext.Provider>
   );

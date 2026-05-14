@@ -4,6 +4,7 @@ import { servicesData } from '../data/services';
 import { useLanguage } from '../context/LanguageContext';
 import { ArrowLeft, CheckCircle2, FileText, Info } from 'lucide-react';
 import { useEffect } from 'react';
+import { HashLink } from 'react-router-hash-link';
 
 export const ServiceDetailPage = () => {
   const { id } = useParams();
@@ -225,13 +226,13 @@ export const ServiceDetailPage = () => {
 
         {/* Action Button */}
         <div className="text-center pb-12">
-            <button 
-              onClick={() => window.open('https://line.me', '_blank')}
+            <HashLink 
+              to="/#contact"
               className="group relative inline-flex items-center justify-center overflow-hidden bg-brand-red text-white font-bold py-6 px-16 rounded-sm transition-all duration-300 uppercase tracking-[0.3em] text-sm shadow-2xl hover:bg-brand-navy active:scale-95"
             >
-              <span className="relative z-10">{language === 'th' ? 'ปรึกษาทีมงานทันที' : language === 'no' ? 'Konsulter teamet vårt' : 'Consult Our Team'}</span>
+              <span className="relative z-10">{language === 'th' ? 'ปรึกษาผู้เชี่ยวชาญ สุกัญญา คงแข็ง' : language === 'no' ? 'Konsulter ekspert Sukanya Kongkhang' : 'Consult Expert Sukanya Kongkhang'}</span>
               <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-            </button>
+            </HashLink>
             <p className="mt-6 text-[10px] text-gray-400 font-bold uppercase tracking-widest">{language === 'th' ? 'พร้อมให้บริการตลอด 24/7 ผ่าน LINE และอีเมล' : language === 'no' ? 'Tilgjengelig 24/7 via LINE og e-post' : 'Available 24/7 via LINE & Email'}</p>
         </div>
       </div>

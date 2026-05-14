@@ -5,7 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 
 export const FloatingActions = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { language } = useLanguage();
+  const { language, setIsLineQRModalOpen } = useLanguage();
 
   const labels = {
     line: { th: 'คุยทาง LINE', en: 'Chat via LINE', no: 'Chat via LINE' },
@@ -18,18 +18,20 @@ export const FloatingActions = () => {
       <AnimatePresence>
         {isOpen && (
           <div className="flex flex-col gap-3 mb-4 items-end">
-            <motion.a
+            <motion.button
               initial={{ opacity: 0, scale: 0.5, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.5, y: 20 }}
               transition={{ delay: 0.0 }}
-              href="https://line.me/ti/p/@thainorexpert"
-              target="_blank"
-              className="bg-[#00B900] text-white flex items-center gap-2 px-6 py-4 rounded-sm shadow-lg font-bold text-xs uppercase tracking-widest"
+              onClick={() => {
+                setIsLineQRModalOpen(true);
+                setIsOpen(false);
+              }}
+              className="bg-[#00B900] text-white flex items-center gap-2 px-6 py-4 rounded-sm shadow-lg font-bold text-xs uppercase tracking-widest w-full justify-center"
             >
               <MessageCircle size={18} />
               {labels.line[language]}
-            </motion.a>
+            </motion.button>
             <motion.a
               initial={{ opacity: 0, scale: 0.5, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
