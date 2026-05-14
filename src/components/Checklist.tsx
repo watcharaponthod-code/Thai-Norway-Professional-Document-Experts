@@ -7,22 +7,28 @@ export const Checklist = () => {
 
   const steps = [
     {
-      title: language === 'th' ? 'ประเภทวีซ่า' : 'Visa Categories',
+      title: language === 'th' ? 'ประเภทวีซ่า' : language === 'no' ? 'Visumkategorier' : 'Visa Categories',
       items: language === 'th' 
         ? ['พาสปอร์ตไทยตัวจริง', 'รูปถ่ายตามมาตรฐาน UDI', 'ใบคำขอวีซ่า (Application form)', 'ใบจองตั๋วเครื่องบิน/ที่พัก']
-        : ['Original Thai Passport', 'Photos as per UDI standards', 'Visa Application Form', 'Flight/Accommodation Booking']
+        : language === 'no'
+          ? ['Originalt thailandsk pass', 'Bilder i henhold til UDI-standarder', 'Visumsøknadsskjema', 'Fly-/overnattingsbestilling']
+          : ['Original Thai Passport', 'Photos as per UDI standards', 'Visa Application Form', 'Flight/Accommodation Booking']
     },
     {
-      title: language === 'th' ? 'เอกสารส่วนตัว' : 'Personal Documents',
+      title: language === 'th' ? 'เอกสารส่วนตัว' : language === 'no' ? 'Personlige dokumenter' : 'Personal Documents',
       items: language === 'th'
         ? ['ใบเกิด', 'ทะเบียนบ้าน', 'ใบเปลี่ยนชื่อ-นามสกุล (ถ้ามี)', 'ใบรับรองโสด/ทะเบียนสมรส']
-        : ['Birth Certificate', 'House Registration', 'Change of Name/Surname Certificate (if any)', 'Certificate of Marital Status/Marriage Certificate']
+        : language === 'no'
+          ? ['Fødselsattest', 'Bostedsregistrering', 'Navneendringsattest (hvis aktuelt)', 'Sivilstandsattest/Vigselsattest']
+          : ['Birth Certificate', 'House Registration', 'Change of Name/Surname Certificate (if any)', 'Certificate of Marital Status/Marriage Certificate']
     },
     {
-      title: language === 'th' ? 'เอกสารฝั่งนอร์เวย์' : 'Norwegian Side Documents',
+      title: language === 'th' ? 'เอกสารฝั่งนอร์เวย์' : language === 'no' ? 'Dokumenter fra norsk side' : 'Norwegian Side Documents',
       items: language === 'th'
         ? ['จดหมายเชิญ (Invitation)', 'เอกสารการเงินผู้เชิญ (Payslips)', 'สำเนาพาสปอร์ตผู้เชิญ', 'หลักฐานที่พัก']
-        : ['Invitation Letter', 'Invitor\'s Financial Documents (Payslips)', 'Invitor\'s Passport Copy', 'Evidence of Accommodation']
+        : language === 'no'
+          ? ['Invitasjonsbrev', 'Invitørens finansielle dokumenter (lønnslipper)', 'Kopi av invitørens pass', 'Dokumentasjon på overnatting']
+          : ['Invitation Letter', 'Invitor\'s Financial Documents (Payslips)', 'Invitor\'s Passport Copy', 'Evidence of Accommodation']
     }
   ];
 

@@ -1,9 +1,60 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Facebook, MessageSquare, Clock, ShieldCheck } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, MessageSquare, Clock, ShieldCheck, Loader2, CheckCircle2, XCircle } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Contact = () => {
   const { t, language } = useLanguage();
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    service: '',
+    message: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "YOUR_ACCESS_KEY_HERE", // Replace with Web3Forms Access Key
+          subject: `New Consultation Request from ${formData.name}`,
+          from_name: "Thainorexpert Website",
+          ...formData
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setStatus('success');
+        setFormData({ name: '', phone: '', service: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
+    
+    // Auto reset status after 5 seconds
+    setTimeout(() => {
+      setStatus('idle');
+    }, 5000);
+  };
 
   return (
     <section id="contact" className="py-24 bg-brand-cream/30">
@@ -26,7 +77,7 @@ export const Contact = () => {
                     <ShieldCheck className="text-brand-red" size={18} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold uppercase tracking-widest mb-1">Organization Number</h4>
+                    <h4 className="text-xs font-bold uppercase tracking-widest mb-1">{language === 'th' ? 'เลขทะเบียนองค์กร' : language === 'no' ? 'Organisasjonsnummer' : 'Organization Number'}</h4>
                     <p className="text-gray-300 font-light text-sm uppercase">935 839 343 (THAI NOR EXPERT KONGKHANG)</p>
                   </div>
                 </div>
@@ -46,7 +97,7 @@ export const Contact = () => {
                     <Mail className="text-brand-red" size={18} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold uppercase tracking-widest mb-1">{language === 'th' ? 'อีเมลทางการ' : 'Official Email'}</h4>
+                    <h4 className="text-xs font-bold uppercase tracking-widest mb-1">{t('contact_email')}</h4>
                     <p className="text-gray-300 font-light text-sm">warn999151@gmail.com</p>
                   </div>
                 </div>
@@ -75,13 +126,17 @@ export const Contact = () => {
           </div>
 
           <div id="contact-form" className="lg:w-1/2 p-12 md:p-16">
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-navy">{language === 'th' ? 'ชื่อ-นามสกุล' : 'Full Name'}</label>
+                  <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-navy">{language === 'th' ? 'ชื่อ-นามสกุล' : language === 'no' ? 'Fullt navn' : 'Full Name'}</label>
                   <input 
                     type="text" 
-                    placeholder={language === 'th' ? "ภาษาไทยหรืออังกฤษ" : "Thai or English"}
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    placeholder={language === 'th' ? "ภาษาไทยหรืออังกฤษ" : language === 'no' ? "Thailandsk eller engelsk" : "Thai or English"}
                     className="w-full px-5 py-4 bg-gray-50 border border-gray-100 focus:outline-none focus:border-brand-navy transition-all text-sm rounded-sm"
                   />
                 </div>
@@ -89,42 +144,83 @@ export const Contact = () => {
                   <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-navy">{t('contact_phone')}</label>
                   <input 
                     type="tel" 
-                    placeholder={language === 'th' ? "โปรดระบุรหัสประเทศ" : "Please include country code"}
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    placeholder={language === 'th' ? "โปรดระบุรหัสประเทศ" : language === 'no' ? "Vennligst inkluder landskode" : "Please include country code"}
                     className="w-full px-5 py-4 bg-gray-50 border border-gray-100 focus:outline-none focus:border-brand-navy transition-all text-sm rounded-sm"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-navy">{language === 'th' ? 'บริการที่สนใจ' : 'Service of Interest'}</label>
-                <select className="w-full px-5 py-4 bg-gray-50 border border-gray-100 focus:outline-none focus:border-brand-navy transition-all appearance-none cursor-pointer text-sm rounded-sm">
-                  <option>{language === 'th' ? 'โปรดเลือกบริการ' : 'Please select a service'}</option>
-                  <option>{language === 'th' ? 'การรับรองเอกสาร' : 'Document Certification'}</option>
-                  <option>{language === 'th' ? 'การจดทะเบียนสมรส' : 'Marriage Registration'}</option>
-                  <option>{language === 'th' ? 'วีซ่าไทย/เชงเก้น' : 'Thai/Schengen Visa'}</option>
-                  <option>{language === 'th' ? 'ปรับสถานะสมรส' : 'Marital Status Adjustment'}</option>
-                  <option>{language === 'th' ? 'แจ้งเกิดบุตร' : 'Birth Registration'}</option>
-                  <option>{language === 'th' ? 'อื่นๆ' : 'Others'}</option>
+                <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-navy">{language === 'th' ? 'บริการที่สนใจ' : language === 'no' ? 'Tjeneste av interesse' : 'Service of Interest'}</label>
+                <select 
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-5 py-4 bg-gray-50 border border-gray-100 focus:outline-none focus:border-brand-navy transition-all appearance-none cursor-pointer text-sm rounded-sm"
+                >
+                  <option value="">{language === 'th' ? 'โปรดเลือกบริการ' : language === 'no' ? 'Vennligst velg en tjeneste' : 'Please select a service'}</option>
+                  <option value="Document Certification">{language === 'th' ? 'การรับรองเอกสาร' : language === 'no' ? 'Dokumentsertifisering' : 'Document Certification'}</option>
+                  <option value="Marriage Registration">{language === 'th' ? 'การจดทะเบียนสมรส' : language === 'no' ? 'Ekteskapsregistrering' : 'Marriage Registration'}</option>
+                  <option value="Thai/Schengen Visa">{language === 'th' ? 'วีซ่าไทย/เชงเก้น' : language === 'no' ? 'Thai-/Schengenvisum' : 'Thai/Schengen Visa'}</option>
+                  <option value="Marital Status Adjustment">{language === 'th' ? 'ปรับสถานะสมรส' : language === 'no' ? 'Oppdatering av sivilstatus' : 'Marital Status Adjustment'}</option>
+                  <option value="Birth Registration">{language === 'th' ? 'แจ้งเกิดบุตร' : language === 'no' ? 'Fødselsregistrering' : 'Birth Registration'}</option>
+                  <option value="Others">{language === 'th' ? 'อื่นๆ' : language === 'no' ? 'Annet' : 'Others'}</option>
                 </select>
               </div>
 
               <div className="space-y-2">
-                <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-navy">{language === 'th' ? 'ข้อความเพิ่มเติม' : 'Additional Message'}</label>
+                <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-navy">{language === 'th' ? 'ข้อความเพิ่มเติม' : language === 'no' ? 'Tilleggsmelding' : 'Additional Message'}</label>
                 <textarea 
                   rows={4}
-                  placeholder={language === 'th' ? "พิมพ์รายละเอียดที่ต้องการปรึกษา..." : "Enter details you wish to consult..."}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  placeholder={language === 'th' ? "พิมพ์รายละเอียดที่ต้องการปรึกษา..." : language === 'no' ? "Skriv inn detaljer du ønsker å konsultere..." : "Enter details you wish to consult..."}
                   className="w-full px-5 py-4 bg-gray-50 border border-gray-100 focus:outline-none focus:border-brand-navy transition-all resize-none text-sm rounded-sm"
                 ></textarea>
               </div>
 
-              <button className="w-full bg-brand-red text-white font-bold py-5 hover:bg-brand-red/90 transition-all uppercase tracking-widest text-xs">
-                {language === 'th' ? 'ส่งข้อมูลเพื่อขอรับคำปรึกษา' : 'Submit for Consultation'}
+              {status === 'success' && (
+                <div className="p-4 bg-green-50 border border-green-200 text-green-700 text-xs flex items-center gap-2 rounded-sm">
+                  <CheckCircle2 size={16} />
+                  {language === 'th' ? 'ส่งข้อความสำเร็จ! เราจะติดต่อกลับโดยเร็วที่สุด' : language === 'no' ? 'Meldingen er sendt! Vi vil kontakte deg snart.' : 'Message sent successfully! We will contact you shortly.'}
+                </div>
+              )}
+              
+              {status === 'error' && (
+                <div className="p-4 bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2 rounded-sm">
+                  <XCircle size={16} />
+                  {language === 'th' ? 'เกิดข้อผิดพลาดในการส่งข้อความ โปรดลองใหม่อีกครั้ง หรือติดต่อผ่าน LINE' : language === 'no' ? 'Det oppstod en feil under sending. Prøv igjen, eller kontakt oss via LINE.' : 'Failed to send message. Please try again or contact us via LINE.'}
+                </div>
+              )}
+
+              <button 
+                type="submit" 
+                disabled={status === 'loading'}
+                className="w-full bg-brand-red text-white font-bold py-5 hover:bg-brand-red/90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {status === 'loading' ? (
+                  <>
+                    <Loader2 size={16} className="animate-spin" />
+                    {language === 'th' ? 'กำลังส่งข้อมูล...' : language === 'no' ? 'Sender...' : 'Sending...'}
+                  </>
+                ) : (
+                  language === 'th' ? 'ส่งข้อมูลเพื่อขอรับคำปรึกษา' : language === 'no' ? 'Send inn for konsultasjon' : 'Submit for Consultation'
+                )}
               </button>
 
               <p className="text-center text-[10px] text-gray-400 font-light mt-4 uppercase tracking-tighter">
                 {language === 'th' 
                    ? 'โดยการส่งฟอร์มนี้ คุณยอมรับเงื่อนไขการดูแลรักษาข้อมูลส่วนบุคคลตามระบบนอร์เวย์' 
-                   : 'By submitting this form, you accept the personal data protection conditions under the Norwegian system.'}
+                   : language === 'no'
+                     ? 'Ved å sende inn dette skjemaet godtar du vilkårene for personvern i henhold til norsk lovgivning.'
+                     : 'By submitting this form, you accept the personal data protection conditions under the Norwegian system.'}
               </p>
             </form>
           </div>

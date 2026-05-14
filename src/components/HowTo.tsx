@@ -24,7 +24,7 @@ export const HowTo = () => {
               className="mb-4 flex items-center justify-center gap-2"
             >
               <div className="w-8 h-[1px] bg-brand-red" />
-              <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-brand-red">Knowledge Base & Guides</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-brand-red">{language === 'th' ? 'ฐานความรู้และคู่มือ' : language === 'no' ? 'Kunnskapsbase og veiledninger' : 'Knowledge Base & Guides'}</p>
               <div className="w-8 h-[1px] bg-brand-red" />
             </motion.div>
             
@@ -137,7 +137,9 @@ export const HowTo = () => {
 
                        <div className="flex items-center gap-3 mb-4">
                          <div className="w-10 h-[2px] bg-brand-red" />
-                         <span className="text-brand-red font-mono text-[10px] font-bold uppercase tracking-widest">Guide Category #{item.id}</span>
+                         <span className="text-brand-red font-mono text-[10px] font-bold uppercase tracking-widest">
+                           {language === 'th' ? 'หมวดหมู่คู่มือ #' : language === 'no' ? 'Veilederkategori #' : 'Guide Category #'}{item.id}
+                         </span>
                        </div>
                        <h3 className="text-2xl md:text-4xl font-display font-bold text-brand-navy mb-6 uppercase tracking-tight leading-[1.1]">
                          {language === 'th' ? item.title : language === 'no' ? (item.titleNo ?? item.titleEn) : item.titleEn}

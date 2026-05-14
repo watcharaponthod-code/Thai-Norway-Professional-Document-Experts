@@ -49,8 +49,8 @@ export const Navbar = () => {
                     <div className="absolute left-[29%] right-[59%] top-0 bottom-0 bg-[#00205B]"></div>
                 </div>
             </div>
-            <span>{language === 'th' ? 'Thai-Norway Professional Document Experts' : 'Thai-Norway Professional Document Experts'}</span>
-            <span className="border-l border-white/20 pl-4">Based in Lier, Norway</span>
+            <span>{language === 'th' ? 'ผู้เชี่ยวชาญเอกสารไทย-นอร์เวย์มืออาชีพ' : language === 'no' ? 'Thailandsk-norske profesjonelle dokumenteksperter' : 'Thai-Norway Professional Document Experts'}</span>
+            <span className="border-l border-white/20 pl-4">{language === 'no' ? 'Basert i Lier, Norge' : language === 'th' ? 'ตั้งอยู่ที่เมือง Lier ประเทศนอร์เวย์' : 'Based in Lier, Norway'}</span>
           </div>
           <div className="flex gap-4 items-center">
             <a href="tel:+4794190563" className="hover:text-white transition-colors">+47 94 19 05 63</a>

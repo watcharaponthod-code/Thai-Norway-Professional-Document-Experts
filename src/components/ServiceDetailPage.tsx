@@ -25,18 +25,18 @@ export const ServiceDetailPage = () => {
             onClick={() => navigate(-1)}
             className="text-brand-red font-bold hover:underline"
           >
-            {language === 'th' ? 'กลับไปจุดเดิม' : 'Back to previous page'}
+            {language === 'th' ? 'กลับไปจุดเดิม' : language === 'no' ? 'Tilbake til forrige side' : 'Back to previous page'}
           </button>
         </div>
       </div>
     );
   }
 
-  const title = language === 'th' ? service.title : service.titleEn;
-  const detailedDesc = language === 'th' ? service.detailedDesc : service.detailedDescEn;
+  const title = language === 'th' ? service.title : language === 'no' ? (service.titleNo ?? service.titleEn) : service.titleEn;
+  const detailedDesc = language === 'th' ? service.detailedDesc : language === 'no' ? (service.detailedDescNo ?? service.detailedDescEn) : service.detailedDescEn;
   const steps = service.detailedSteps;
-  const expertTips = language === 'th' ? service.expertTips : service.expertTipsEn;
-  const conclusion = language === 'th' ? service.conclusion : service.conclusionEn;
+  const expertTips = language === 'th' ? service.expertTips : language === 'no' ? (service.expertTipsNo ?? service.expertTipsEn) : service.expertTipsEn;
+  const conclusion = language === 'th' ? service.conclusion : language === 'no' ? (service.conclusionNo ?? service.conclusionEn) : service.conclusionEn;
 
   return (
     <div className="min-h-screen bg-[#f8f5f0] py-12 px-4 md:py-24 selection:bg-brand-red/20">
@@ -46,7 +46,7 @@ export const ServiceDetailPage = () => {
           className="flex items-center gap-2 text-brand-navy mb-8 hover:text-brand-red transition-colors font-bold uppercase tracking-widest text-xs group"
         >
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-          {language === 'th' ? 'กลับไปที่เดิม' : 'Back to Previous'}
+          {language === 'th' ? 'กลับไปที่เดิม' : language === 'no' ? 'Tilbake' : 'Back to Previous'}
         </button>
 
         <motion.div 
@@ -112,7 +112,7 @@ export const ServiceDetailPage = () => {
                   <Info size={18} />
                 </div>
                 <h2 className="text-xs font-bold uppercase tracking-[0.3em] text-brand-navy border-b border-brand-navy/10 pb-1">
-                  {language === 'th' ? 'ข้อมูลเชิงลึกและหลักการดำเนินการ' : 'In-depth Principles & Insights'}
+                  {language === 'th' ? 'ข้อมูลเชิงลึกและหลักการดำเนินการ' : language === 'no' ? 'Dybdeprinsipper og innsikt' : 'In-depth Principles & Insights'}
                 </h2>
               </div>
               <p className="text-xl md:text-2xl text-gray-800 leading-relaxed font-light">
@@ -129,7 +129,7 @@ export const ServiceDetailPage = () => {
                   </div>
                   <h3 className="text-lg font-bold text-brand-navy uppercase tracking-tight mb-6 flex items-center gap-2">
                     <span className="w-3 h-3 bg-brand-red rounded-full" />
-                    {language === 'th' ? 'เคล็ดลับจากผู้เชี่ยวชาญ (Pro Tips)' : 'Pro Tips & Expert Insights'}
+                    {language === 'th' ? 'เคล็ดลับจากผู้เชี่ยวชาญ (Pro Tips)' : language === 'no' ? 'Eksperttips og innsikt' : 'Pro Tips & Expert Insights'}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
                     {expertTips.map((tip, idx) => (
@@ -149,7 +149,7 @@ export const ServiceDetailPage = () => {
               <section className="mb-20">
                 <h2 className="text-3xl font-display font-bold text-brand-navy uppercase tracking-tight mb-12 flex items-center gap-4">
                   <div className="h-10 w-1 bg-brand-red" />
-                  {language === 'th' ? 'ขั้นตอนการดำเนินงานทีละขั้น' : 'Step-by-Step Methodology'}
+                  {language === 'th' ? 'ขั้นตอนการดำเนินงานทีละขั้น' : language === 'no' ? 'Steg-for-steg-metode' : 'Step-by-Step Methodology'}
                 </h2>
                 <div className="space-y-12">
                   {steps.map((step, idx) => (
@@ -162,11 +162,11 @@ export const ServiceDetailPage = () => {
                       </div>
                       <div className="pt-1">
                         <h3 className="text-xl font-bold text-brand-navy uppercase tracking-tight mb-3">
-                          {language === 'th' ? step.title : step.titleEn}
+                          {language === 'th' ? step.title : language === 'no' ? (step.titleNo ?? step.titleEn) : step.titleEn}
                         </h3>
                         <div className="bg-gray-50/50 p-6 rounded-sm border-l-2 border-brand-navy/10 group-hover:border-brand-red/30 transition-colors">
                           <p className="text-gray-600 leading-relaxed text-lg">
-                            {language === 'th' ? step.desc : step.descEn}
+                            {language === 'th' ? step.desc : language === 'no' ? (step.descNo ?? step.descEn) : step.descEn}
                           </p>
                         </div>
                       </div>
@@ -183,10 +183,10 @@ export const ServiceDetailPage = () => {
                 <div className="w-6 h-6 rounded-full bg-brand-red text-white flex items-center justify-center">
                   <CheckCircle2 size={14} />
                 </div>
-                {language === 'th' ? 'สรุปรายการเตรียมความพร้อม' : 'Readiness Checklist'}
+                {language === 'th' ? 'สรุปรายการเตรียมความพร้อม' : language === 'no' ? 'Beredskapsliste' : 'Readiness Checklist'}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-                {(language === 'th' ? service.steps : service.stepsEn)?.map((s, i) => (
+                {(language === 'th' ? service.steps : language === 'no' ? (service.stepsNo ?? service.stepsEn) : service.stepsEn)?.map((s, i) => (
                   <div key={i} className="flex items-center gap-4 group/item">
                     <div className="w-5 h-5 rounded-sm border border-brand-red/30 flex items-center justify-center group-hover/item:border-brand-red transition-colors">
                       <div className="w-2.5 h-2.5 bg-brand-red opacity-0 group-hover/item:opacity-100 transition-opacity rounded-sm" />
@@ -229,10 +229,10 @@ export const ServiceDetailPage = () => {
               onClick={() => window.open('https://line.me', '_blank')}
               className="group relative inline-flex items-center justify-center overflow-hidden bg-brand-red text-white font-bold py-6 px-16 rounded-sm transition-all duration-300 uppercase tracking-[0.3em] text-sm shadow-2xl hover:bg-brand-navy active:scale-95"
             >
-              <span className="relative z-10">{language === 'th' ? 'ปรึกษาทีมงานทันที' : 'Consult Our Team'}</span>
+              <span className="relative z-10">{language === 'th' ? 'ปรึกษาทีมงานทันที' : language === 'no' ? 'Konsulter teamet vårt' : 'Consult Our Team'}</span>
               <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             </button>
-            <p className="mt-6 text-[10px] text-gray-400 font-bold uppercase tracking-widest">Available 24/7 via LINE & Email</p>
+            <p className="mt-6 text-[10px] text-gray-400 font-bold uppercase tracking-widest">{language === 'th' ? 'พร้อมให้บริการตลอด 24/7 ผ่าน LINE และอีเมล' : language === 'no' ? 'Tilgjengelig 24/7 via LINE og e-post' : 'Available 24/7 via LINE & Email'}</p>
         </div>
       </div>
     </div>
