@@ -25,27 +25,19 @@ export const Contact = () => {
     setStatus('loading');
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      await fetch("https://script.google.com/macros/s/AKfycbxGzRh8XlKUt0-WXuEgjL9RHq9r-DAT9sTGRAx_ltf2m3_jP_RynVN9QkpGsbWCKdlM/exec", {
         method: "POST",
+        mode: "no-cors",
         headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
+          "Content-Type": "text/plain",
         },
-        body: JSON.stringify({
-          access_key: "629368dc-5582-4a57-a2d2-1f6b8289ce79", // User's Web3Forms Access Key
-          subject: `New Consultation Request from ${formData.name}`,
-          from_name: "Thainorexpert Website",
-          ...formData
-        }),
+        body: JSON.stringify(formData),
       });
 
-      const result = await response.json();
-      if (result.success) {
-        setStatus('success');
-        setFormData({ name: '', phone: '', service: '', message: '' });
-      } else {
-        setStatus('error');
-      }
+      // In no-cors mode, we can't read the response, but if fetch doesn't throw,
+      // it means the request was successfully dispatched to Google.
+      setStatus('success');
+      setFormData({ name: '', phone: '', service: '', message: '' });
     } catch (error) {
       setStatus('error');
     }
