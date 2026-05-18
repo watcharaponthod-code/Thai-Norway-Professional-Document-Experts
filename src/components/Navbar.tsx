@@ -53,8 +53,8 @@ export const Navbar = () => {
             <span className="border-l border-white/20 pl-4">{language === 'no' ? 'Basert i Lier, Norge' : language === 'th' ? 'ตั้งอยู่ที่เมือง Lier ประเทศนอร์เวย์' : 'Based in Lier, Norway'}</span>
           </div>
           <div className="flex gap-4 items-center">
-            <a href="tel:+4794190563" className="hover:text-white transition-colors">+47 94 19 05 63</a>
-            <span className="border-l border-white/20 pl-4">warn999151@gmail.com</span>
+            <a href="tel:+4746357897" className="hover:text-white transition-colors">+47 46 35 78 97</a>
+            <span className="border-l border-white/20 pl-4">thainorexpertkongkhang@gmail.com</span>
             <div className="border-l border-white/20 ml-2 pl-4 flex gap-2 items-center">
               <button
                 onClick={() => setLanguage('th')}
@@ -89,7 +89,7 @@ export const Navbar = () => {
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 smooth

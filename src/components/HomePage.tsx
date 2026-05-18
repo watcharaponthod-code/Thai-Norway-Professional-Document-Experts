@@ -67,9 +67,10 @@ export const HomePage = () => {
               <ul className="space-y-4 text-gray-300 text-[10px] uppercase tracking-widest leading-loose">
                 <li>Org. Nr.:<br/><span className="text-gray-100 font-bold uppercase">935 839 343 (THAI NOR EXPERT KONGKHANG)</span></li>
                 <li>{t('contact_address')}:<br/><span className="text-gray-100 font-bold uppercase">Jensvollveien 56, 3413 Lier, Norway</span></li>
-                <li>{t('contact_phone')}:<br/><span className="text-gray-100 font-bold uppercase">+47 94 19 05 63</span></li>
+                <li>{t('contact_phone')} (Norge):<br/><span className="text-gray-100 font-bold uppercase">+47 46 35 78 97</span></li>
+                <li>{t('contact_phone')} (Thailand):<br/><span className="text-gray-100 font-bold uppercase">+66 61 182 1497</span></li>
                 <li>LINE ID:<br/><span className="text-gray-100 font-bold uppercase">@thainorexpert</span></li>
-                <li>EMAIL:<br/><span className="text-gray-100 font-bold uppercase italic lowercase">warn999151@gmail.com</span></li>
+                <li>EMAIL:<br/><span className="text-gray-100 font-bold uppercase italic lowercase">thainorexpertkongkhang@gmail.com</span></li>
               </ul>
             </div>
           </div>

@@ -33,7 +33,7 @@ export const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-screen lg:h-screen flex flex-col items-center justify-center overflow-hidden py-20 lg:py-0">
+    <section className="relative min-h-screen lg:h-screen flex flex-col items-center justify-center overflow-hidden pt-32 pb-20 lg:pt-0 lg:pb-0">
       {/* Background Image with Dark Professional Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -45,9 +45,9 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/80 via-transparent to-transparent" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 h-auto lg:h-full flex flex-col lg:flex-row items-center justify-between py-12 md:py-20 lg:px-24 gap-12">
+      <div className="container mx-auto px-4 relative z-10 h-auto lg:h-full flex flex-col lg:flex-row items-center justify-between pb-12 md:pb-20 lg:pt-32 lg:pb-12 lg:px-24 gap-12">
         {/* Left Side: Article Content */}
-        <div className="w-full lg:w-3/5 flex flex-col justify-center pt-10">
+        <div className="w-full lg:w-3/5 flex flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -57,27 +57,43 @@ export const Hero = () => {
 
 
 
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white tracking-tight uppercase leading-tight">
-              {t('hero_article_title')}
+            <h1 className="font-display font-bold text-white tracking-tight uppercase leading-tight">
+              <span className="block text-[clamp(1.1rem,2.8vw,2.5rem)]">
+                {t('hero_article_title').split('|')[0]}
+              </span>
+              <span className="block text-[clamp(0.95rem,2.2vw,1.9rem)] text-brand-gold mt-1">
+                {t('hero_article_title').split('|')[1]}
+              </span>
             </h1>
 
             <div className="w-20 h-1 bg-brand-red" />
 
-            <div className="space-y-4 max-w-2xl">
-              <p className="text-white text-sm md:text-base leading-relaxed font-medium">
-                {t('hero_article_content')}
+            <div className="space-y-3 max-w-2xl">
+              <p className="text-brand-gold text-sm md:text-base font-semibold leading-relaxed">
+                {t('hero_article_subtitle')}
               </p>
-              
-              <div className="bg-brand-navy/60 backdrop-blur-sm border-l-2 border-brand-red p-6 mt-8 shadow-xl space-y-4">
-                {t('hero_features').split('|').map((feature, idx) => (
-                  <div key={idx} className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 bg-brand-gold rounded-full shrink-0" />
-                    <p className="text-white text-[11px] md:text-[13px] font-bold uppercase tracking-widest leading-none">
-                      {feature.replace('•', '').trim()}
+
+              <div className="space-y-2">
+                {t('hero_article_content').split('||').map((para, idx) => (
+                  <p key={idx} className="text-white/90 text-[11px] md:text-xs leading-relaxed">
+                    {para.trim()}
+                  </p>
+                ))}
+              </div>
+
+              <div className="bg-brand-navy/60 backdrop-blur-sm border-l-2 border-brand-red p-4 mt-4 shadow-xl space-y-2">
+                <p className="text-brand-gold text-[10px] md:text-[11px] font-bold uppercase tracking-widest mb-3">
+                  {t('hero_services_intro')}
+                </p>
+                {t('hero_features').split('||').map((feature, idx) => (
+                  <div key={idx} className="flex items-start gap-2 pb-1 border-b border-white/5 last:border-0">
+                    <p className="text-white/90 text-[10px] md:text-[11px] leading-relaxed">
+                      {feature.trim()}
                     </p>
                   </div>
                 ))}
               </div>
+
             </div>
 
             <div className="pt-6 flex flex-wrap gap-4">
@@ -96,8 +112,27 @@ export const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Right Side: Interactive Cards (Accordion Style) */}
+        {/* Right Side: Closing Section + Interactive Cards */}
         <div className="w-full lg:w-1/3 flex flex-col gap-4">
+
+            {/* Closing Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+              className="bg-brand-navy/80 backdrop-blur-md border-l-4 border-brand-gold shadow-xl p-6 space-y-3"
+            >
+              <h3 className="text-brand-gold text-xs font-bold uppercase tracking-widest">
+                {t('hero_closing_title')}
+              </h3>
+              <p className="text-white/90 text-[11px] leading-relaxed">
+                {t('hero_closing_text')}
+              </p>
+              <p className="text-white/75 text-[11px] italic leading-relaxed border-t border-white/10 pt-3">
+                {t('hero_closing_quote')}
+              </p>
+            </motion.div>
+
             {cards.map((card, i) => (
                 <div key={i} className="w-full flex flex-col">
                     <motion.button

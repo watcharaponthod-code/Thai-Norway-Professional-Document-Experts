@@ -34,21 +34,46 @@ export const translations: Translations = {
     no: 'Sertifiserte offisielle tjenester — Basert i Lier, Norge'
   },
   hero_article_title: {
-    th: 'ยินดีต้อนรับสู่ Thainorexpert Kongkhang',
-    en: 'Welcome to Thainorexpert Kongkhang',
-    no: 'Velkommen til Thainorexpert Kongkhang'
+    th: 'Thainorexpert Kongkhang|เชื่อมต่อไทย-นอร์เวย์ ให้เรื่องเอกสารเป็นเรื่องง่าย',
+    en: 'Thainorexpert Kongkhang|Connecting Thailand–Norway, Making Documents Easy',
+    no: 'Thainorexpert Kongkhang|Forbinder Thailand–Norge, gjør dokumenter enkelt'
+  },
+  hero_article_subtitle: {
+    th: 'ผู้ช่วยมืออาชีพตัวจริง ด้านเอกสาร วีซ่า และการประสานงานระหว่างประเทศ ครบจบในที่เดียว',
+    en: 'Your True Professional Partner for Documents, Visas & International Coordination — All in One Place',
+    no: 'Din ekte profesjonelle partner for dokumenter, visum og internasjonal koordinering — alt på ett sted'
   },
   hero_article_content: {
-    th: 'Thainorexpert Kongkhang โดยคุณสุกัญญา คงแข็ง ผู้เชี่ยวชาญด้านบริการเอกสารนอร์เวย์-ไทย ครบวงจร ตั้งแต่การให้คำปรึกษา รับรองเอกสาร ทำวีซ่าไทย จัดเตรียมเชคลิสต์แจ้งเกิดและจดทะเบียนสมรส ตรวจสอบความถูกต้องก่อนยื่น และประสานงานหน่วยงานราชการทั้งสองประเทศ พร้อมบริการส่งเอกสารกลับไทยอย่างปลอดภัย มั่นใจด้วยทีมพาร์ทเนอร์มืออาชีพ',
-    en: 'Thainorexpert Kongkhang, led by Ms. Sukanya Kongkhang, is a comprehensive expert in Norwegian-Thai document services. Our services range from professional consultation and legalization to Thai visa processing, birth and marriage registration checklists, and dual-country government liaison. We ensure secure document delivery back to Thailand with our trusted professional partner network.',
-    no: 'Thainorexpert Kongkhang, ledet av Sukanya Kongkhang, er en komplett ekspert på norsk-thailandske dokumenttjenester. Våre tjenester spenner fra profesjonell rådgivning og legalisering til thai-visum, fødsel- og ekteskapsregistrering samt kontakt med myndigheter i begge land. Vi garanterer sikker dokumentlevering tilbake til Thailand gjennom vårt pålitelige partnernettverk.'
+    th: 'การทำเรื่องเอกสารข้ามประเทศไม่ว่าจะเป็นเรื่องการแจ้งเกิดเพื่อขอสัญชาติไทย สำหรับคนไทยที่คลอดบุตรในต่างประเทศ (นอร์เวย์) รวมทั้งการเตรียมเอกสารเพื่อนำไปบันทึกฐานะแห่งครอบครัวในระบบทะเบียนราษฎรของไทย เช่น สถานะสมรส, สถานะหย่า, สถานะหม้าย หรือชาวต่างชาติต้องการจดทะเบียนสมรสในประเทศไทย, เอกสารการทำธุรกรรมเกี่ยวกับที่ดิน, ธนาคาร ฯลฯ||ชาวนอร์เวย์ต้องการทำวีซ่าไปประเทศไทย ซึ่งแต่ละงานมักจะมีความยุ่งยาก ซับซ้อน และต้องใช้ความแม่นยำสูง Thainorexpert Kongkhang เข้าใจถึงปัญหานี้ดี เราจึงพร้อมเป็น "คนประสานงาน" ที่จะช่วยแบ่งเบาภาระและทำให้ทุกขั้นตอนของคุณราบรื่นที่สุด||บริการของเราดูแลโดยผู้มีความรู้ ความสามารถ มีความเชี่ยวชาญ และมีประสบการณ์ด้านนี้มายาวนาน และพร้อมอัปเดตข้อมูลทุกวันแบบเคสบายเคส มั่นใจได้ว่าเคสของคุณจะได้รับการดูแลอย่างถูกต้องตามข้อบังคับล่าสุดของทั้งสองประเทศ',
+    en: 'Cross-border document processing — from birth registration for Thai nationals born abroad (Norway), preparing documents for family status records in Thailand\'s civil registration system (marriage, divorce, widowhood), foreign nationals registering marriage in Thailand, land and banking transactions, and more.||Norwegian nationals needing a Thai visa face the same complexity. Each task is often complicated, multi-layered, and requires high precision. Thainorexpert Kongkhang understands this well and is ready to be your dedicated coordinator to ease the burden and ensure every step runs smoothly.||Our services are managed by knowledgeable, capable, and highly experienced professionals who update their expertise case-by-case every day — ensuring your case is handled correctly according to the latest regulations of both countries.',
+    no: 'Grensekryssende dokumentbehandling — fra fødselsregistrering for thailandske statsborgere født i utlandet (Norge), forberedelse av dokumenter for familiestatusregistrering i Thailands folkeregister (ekteskap, skilsmisse, enkestand), utenlandske statsborgere som gifter seg i Thailand, eiendoms- og banktransaksjoner og mer.||Nordmenn som trenger thai-visum møter den samme kompleksiteten. Hvert oppdrag er ofte komplisert og krever høy presisjon. Thainorexpert Kongkhang forstår dette godt og er klar til å være din dedikerte koordinator.||Tjenestene våre ledes av kunnskapsrike og erfarne fagfolk som oppdaterer sin ekspertise sak for sak hver dag — og sikrer at din sak håndteres korrekt i henhold til gjeldende regelverk i begge land.'
+  },
+  hero_services_intro: {
+    th: 'บริการครบวงจร ที่ตอบโจทย์ทุกความต้องการของคุณ เราไม่ได้เพียงแค่ให้คำปรึกษา แต่เรา "ดูแล" คุณตั้งแต่ต้นจนจบ',
+    en: 'Comprehensive Services — We don\'t just consult, we "take care" of you from start to finish.',
+    no: 'Omfattende tjenester — Vi gir ikke bare råd, vi "tar vare på" deg fra start til slutt.'
   },
   hero_features: {
-    th: '• ยื่นเอกสารกงสุลไทยในนอร์เวย์ | • บริการแปลเอกสารและรับรองความถูกต้อง | • ให้คำปรึกษาด้านวีซ่าและ UDI โดยผู้เชี่ยวชาญ | • ยื่นเรื่องสถานทูตนอร์เวย์ในไทยครบวงจร',
-    en: '• Thai Consular services in Norway | • Document translation & certification | • Visa & UDI expert consultation | • Comprehensive Norwegian Embassy services in Thailand',
-    no: '• Thailandske konsulatstjenester i Norge | • Dokumentoversettelse og sertifisering | • Visum- og UDI-ekspertrådgivning | • Fullstendige norske ambassadetjenester i Thailand'
+    th: '• งานวีซ่า (Visa Services): รับทำวีซ่าไทย พร้อมให้คำแนะนำอย่างละเอียด||• งานทะเบียนและกงสุล (Consular & Registration Services): จัดเตรียมเชคลิสต์แจ้งเกิดเพื่อขอสัญชาติไทย สำหรับคนไทยที่คลอดบุตรในต่างประเทศ (นอร์เวย์), รวมทั้งการเตรียมเอกสารเพื่อนำไปบันทึกฐานะแห่งครอบครัวในระบบทะเบียนราษฎรของไทย เช่น สถานะสมรส, สถานะหย่า, สถานะหม้าย หรือชาวต่างชาติต้องการจดทะเบียนสมรสในประเทศไทย||• ตรวจสอบความถูกต้อง (Accuracy Check): ตรวจสอบเอกสารทุกฉบับอย่างละเอียดก่อนยื่นจริง เพื่อลดความผิดพลาดและการเสียเวลา||• ประสานงานภาครัฐ (Government Liaison): ดำเนินการติดต่อและประสานงานกับหน่วยงานราชการทั้งนอร์เวย์และไทยแทนคุณ||• รับส่งเอกสารปลอดภัย (Secure Delivery): มีบริการส่งเอกสารสำคัญกลับประเทศไทยอย่างปลอดภัยไร้กังวล',
+    en: '• Visa Services: Thai visa processing with detailed expert guidance||• Consular & Registration Services: Birth registration checklist for Thai nationals born abroad (Norway), plus preparation of documents for family status records in Thailand\'s civil registration system — marriage, divorce, widowhood — and marriage registration in Thailand for foreign nationals||• Accuracy Check: Thorough review of every document before submission to reduce errors and save time||• Government Liaison: We handle all contacts and coordination with official authorities in both Norway and Thailand on your behalf||• Secure Delivery: Safe and worry-free delivery of important documents back to Thailand',
+    no: '• Visum (Visa Services): Thai visumbehandling med detaljert ekspertveiledning||• Konsulær & Registrering: Sjekkliste for fødselsregistrering for thai-statsborgere født i utlandet (Norge), samt forberedelse av dokumenter for familiestatusregistrering i Thailands folkeregister — ekteskap, skilsmisse, enkestand — og ekteskapsregistrering i Thailand for utenlandske statsborgere||• Nøyaktighetssjekk: Grundig gjennomgang av alle dokumenter før innsending for å redusere feil og spare tid||• Myndighetskontakt: Vi tar hånd om all kontakt og koordinering med offentlige myndigheter i både Norge og Thailand på dine vegne||• Sikker Levering: Trygg og bekymringsfri levering av viktige dokumenter tilbake til Thailand'
   },
-  cta_consultation: { th: 'ปรึกษาผู้เชี่ยวชาญตอนนี้', en: 'Consult an Expert Now', no: 'Kontakt en ekspert nå' },
+  hero_closing_title: {
+    th: 'ดูแลด้วยหัวใจ มั่นใจด้วยมืออาชีพ',
+    en: 'Care from the Heart, Confidence from Professionals',
+    no: 'Omsorg fra hjertet, trygghet fra fagfolk'
+  },
+  hero_closing_text: {
+    th: 'ทีมพาร์ทเนอร์ของเราทุกคนคือมืออาชีพที่มีประสบการณ์ พร้อมทำงานด้วยความซื่อสัตย์ โปร่งใส และใส่ใจในทุกรายละเอียด เพื่อให้คุณได้รับบริการที่ดีที่สุด รวดเร็วที่สุด และประหยัดเวลาที่สุด',
+    en: 'Every member of our partner team is an experienced professional, ready to work with honesty, transparency, and attention to every detail — so you receive the best, fastest, and most time-efficient service possible.',
+    no: 'Hvert medlem av partnerteamet vårt er en erfaren fagperson, klar til å arbeide med ærlighet, åpenhet og oppmerksomhet på alle detaljer — slik at du får den beste, raskeste og mest tidseffektive tjenesten.'
+  },
+  hero_closing_quote: {
+    th: '"ปล่อยให้เรื่องเอกสารยากๆ เป็นหน้าที่ของเรา... Thainorexpert Kongkhang พร้อมยืนเคียงข้างคุณ เพื่อให้คุณเริ่มต้นบทใหม่ของชีวิตในต่างแดนหรือการกลับบ้านได้อย่างมั่นใจและไร้กังวลค่ะ"',
+    en: '"Let the complex paperwork be our responsibility... Thainorexpert Kongkhang stands by your side, so you can begin your new chapter abroad or return home with confidence and peace of mind."',
+    no: '"La det komplekse papirarbeidet være vårt ansvar... Thainorexpert Kongkhang står ved din side, slik at du kan starte et nytt kapittel i livet ditt i utlandet eller returnere hjem med trygghet og ro."'
+  },
+  cta_consultation: { th: 'ปรึกษาเราเลยวันนี้', en: 'Consult Us Today', no: 'Kontakt oss i dag' },
 
   // Quick Actions
   qa_visa_title: { th: 'ต้องการทำวีซ่า?', en: 'Need a Visa?', no: 'Trenger du visum?' },
@@ -105,14 +130,14 @@ export const translations: Translations = {
   // Why Us
   why_title: { th: 'เหตุใดจึงควรเลือกเรา?', en: 'Why Choose Us?', no: 'Hvorfor velge oss?' },
   why_quote: {
-    th: '"มืออาชีพที่เข้าใจทั้งระบบไทยและนอร์เวย์อย่างแท้จริง"',
-    en: '"Professionals who truly understand both the Thai and Norwegian systems"',
-    no: '"Fagpersoner som virkelig forstår både det thailandske og norske systemet"'
+    th: '"ดูแลด้วยหัวใจ มั่นใจด้วยมืออาชีพ"',
+    en: '"Care from the Heart, Confidence from Professionals"',
+    no: '"Omsorg fra hjertet, trygghet fra fagfolk"'
   },
   why_desc: {
-    th: 'Thainorexpert Kongkhang ก่อตั้งขึ้นเพื่อเป็นสะพานเชื่อมความซับซ้อนด้านเอกสารสำหรับชาวไทยในนอร์เวย์ เราดูแลคุณด้วยจรรยาบรรณวิชาชีพและประสบการณ์ที่เชื่อถือได้',
-    en: 'Thainorexpert Kongkhang was founded to bridge the gap in document complexity for Thais living in Norway. We serve you with professional ethics and proven experience.',
-    no: 'Thainorexpert Kongkhang ble grunnlagt for å forenkle den komplekse dokumenthåndteringen for thailendere i Norge. Vi betjener deg med profesjonell integritet og dokumentert erfaring.'
+    th: 'ทีมพาร์ทเนอร์ของเราทุกคนคือมืออาชีพที่มีประสบการณ์ พร้อมทำงานด้วยความซื่อสัตย์ โปร่งใส และใส่ใจในทุกรายละเอียด เพื่อให้คุณได้รับบริการที่ดีที่สุด รวดเร็วที่สุด และประหยัดเวลาที่สุด "ปล่อยให้เรื่องเอกสารยากๆ เป็นหน้าที่ของเรา... Thainorexpert Kongkhang พร้อมยืนเคียงข้างคุณ เพื่อให้คุณเริ่มต้นบทใหม่ของชีวิตในต่างแดนหรือการกลับบ้านได้อย่างมั่นใจและไร้กังวล"',
+    en: 'Every member of our partner team is an experienced professional committed to honesty, transparency, and attention to detail — delivering the best, fastest, and most time-efficient service possible. "Let us handle the complex paperwork... Thainorexpert Kongkhang stands by your side so you can start your new chapter abroad or return home with confidence and peace of mind."',
+    no: 'Hvert medlem av partnerteamet vårt er en erfaren fagperson som er forpliktet til ærlighet, åpenhet og oppmerksomhet på detaljer. "La oss ta hånd om det komplekse papirarbeidet... Thainorexpert Kongkhang står ved din side slik at du kan starte et nytt kapittel i livet ditt i utlandet eller returnere hjem med trygghet og ro."'
   },
   why_expert_title: { th: 'ความเชี่ยวชาญเฉพาะด้าน', en: 'Specialized Expertise', no: 'Spesialisert kompetanse' },
   why_expert_desc: {

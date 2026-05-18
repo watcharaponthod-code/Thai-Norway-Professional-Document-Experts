@@ -80,7 +80,17 @@ export const Contact = () => {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-widest mb-1">{t('contact_phone')} (Norge)</h4>
-                    <p className="text-gray-300 font-light text-sm">+47 94 19 05 63</p>
+                    <p className="text-gray-300 font-light text-sm"><a href="tel:+4746357897" className="hover:text-white transition-colors">+47 46 35 78 97</a></p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-6 border-l border-white/10 pl-6">
+                  <div className="w-10 h-10 bg-white/5 flex items-center justify-center shrink-0">
+                    <Phone className="text-brand-red" size={18} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-widest mb-1">{t('contact_phone')} (Thailand)</h4>
+                    <p className="text-gray-300 font-light text-sm"><a href="tel:+66611821497" className="hover:text-white transition-colors">+66 61 182 1497</a></p>
                   </div>
                 </div>
 
@@ -90,7 +100,7 @@ export const Contact = () => {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-widest mb-1">{t('contact_email')}</h4>
-                    <p className="text-gray-300 font-light text-sm">warn999151@gmail.com</p>
+                    <p className="text-gray-300 font-light text-sm">thainorexpertkongkhang@gmail.com</p>
                   </div>
                 </div>
 

@@ -49,7 +49,7 @@ export const FloatingActions = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.5, y: 20 }}
               transition={{ delay: 0.2 }}
-              href="tel:+4794190563"
+              href="tel:+4746357897"
               className="bg-brand-navy text-white flex items-center gap-2 px-6 py-4 rounded-sm shadow-lg font-bold text-xs uppercase tracking-widest"
             >
               <Phone size={18} />
